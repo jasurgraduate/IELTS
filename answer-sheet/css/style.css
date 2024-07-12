@@ -1,0 +1,191 @@
+body {
+    background: linear-gradient(to bottom right, #f8e7ce, #e8dac7);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+button, button[type="submit"] {
+    border-color: #e1dede;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin: 0.1rem;
+    padding: 0.5rem 1.1rem;
+    transition: ease-in-out;
+}
+
+button:hover, button[type="submit"]:hover {
+    background-color: #3c5899;
+    box-shadow: 0px 0px 10px rgba(35, 35, 35, 0.3);
+    color: rgb(255, 255, 255);
+}
+ a {
+    text-decoration: none;
+    color: #4f0f60; /* Default text color */
+    font-size: 1.5rem; /* Font size in rem units */
+    padding: 1rem 1.2rem; /* Padding using rem units */
+    border-radius: 0.5rem; /* Border radius using rem units */
+    transition: all 0.3s ease;
+  }
+  
+ a:hover {
+    background-color: #1c46776b; /* Darker transparent background on hover */
+    color: #ffffff; /* Text color on hover */
+    transform: translateY(-0.3rem); /* Move link up slightly on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow effect on hover */
+  }
+
+.container {
+    border-style: groove;
+    display: grid;
+    width: 97%;
+
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+#result {
+    color: #6f1358; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    margin-top: 1rem; 
+    text-align: center; 
+    text-transform: uppercase;
+}
+
+.footer {
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    margin-bottom: 0;
+    background: linear-gradient(300deg, #f2a7a7, #77b4f6);
+    border-radius: 0.1rem;
+    color: rgb(255, 255, 255);
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    text-align: center;
+   
+}
+
+header {
+    align-items: center;
+    background: linear-gradient(15deg, #f2a7a7, #77b4f6);
+    border-radius: 0.2rem;
+    display: inline-flex;
+    height: 5rem;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    display: block;
+    font-size: 1rem;
+    height: 1.9rem;
+    margin-right: 0.5rem;
+}
+
+
+input[type="text"]:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #2fc9b5; /* Change border color when focused */
+    box-shadow: 0.1rem 0.1rem 0.5rem rgb(72, 69, 71); /* Optional: Add box shadow for focus effect */
+}
+
+
+input[type="text"]:nth-of-type(10) {
+    display: flex;
+    font-size: 10rem;
+}
+
+label {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2rem;
+}
+
+label:nth-of-type(10) {
+    margin-left: -10.5rem; /* Adjust to align with other labels */
+}
+
+.checkbox-label {
+    border: #2bdfff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.2rem 0.2rem;
+}
+
+.checkbox-label:hover, .checkbox-label label:hover {
+    background: linear-gradient(135deg, #ff416c, #2bffff, 0.7);
+    box-shadow: 0.1rem 0.2rem 1rem rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.2rem;
+    color: #ff6363;
+    transition: ease-in-out;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 0px;
+}
+
+.checkbox-label input[type="checkbox"] + span {
+    display: inline-block;
+}
+
+.inputForm {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+#timer {
+    color: #6f1358;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    margin-left: 0.8rem;
+}
+
+@media screen and (min-width: 76px) {
+    .column {
+        column-count: 1;
+        column-rule: 0.01rem solid #333;
+        break-inside: avoid;
+        margin-top: 1.7rem;
+        margin-bottom: 1.7rem;
+    }
+
+    .column .column-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media screen and (min-width: 1200px) {
+        .column {
+            column-count: 4;
+            column-rule: 0.01rem solid #333;
+        }
+
+        .column .column-item:nth-of-type(10n+1) {
+            break-before: column;
+        }
+    }
+}

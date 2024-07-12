@@ -1,0 +1,208 @@
+/* Body Styles */
+body {
+    background: linear-gradient(15deg, #f2a7a7, #77b4f6);
+    width: 100%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: rgba(249, 227, 195, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    
+}
+
+/* Footer Styles */
+footer {
+    width: 100%;
+    background-color: rgba(249, 227, 195, 0.8);
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0px -8px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a:hover {
+    background: linear-gradient(135deg, #fcd86d, #2bffff, 0.9);
+    color: #ff6363;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid #007bff88;
+}
+
+/* Container Styles */
+.container {
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+    height: 40rem;
+    border-radius: 10px;
+    margin-top: 5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.left,
+.right {
+    flex: 1;
+    padding: 0.1rem;
+    overflow-y: auto;
+}
+
+.left {
+    background: linear-gradient(15deg, #6eb2c366, #f5fcd3b3);
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    margin-top: 3.5rem;
+    height: 90%;
+}
+
+.right {
+    background-color: #f9f9f900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.separator {
+margin-left: 1rem;
+    width: 0.2rem;
+    background-color: rgba(249, 195, 195, 0.8);
+}
+
+/* Heading Styles */
+h1, h2 {
+    text-align: center;
+    color: #565656;
+}
+
+.input-title {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.input-area {
+    width: 96%;
+    height: 95%;
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 19px;
+    resize: none;
+    font-style: normal;
+    font-family: 'Calibri', Times, serif;
+}
+
+.input-area:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button Styles */
+button {
+    padding: 8px 15px;
+    margin: 0 10px;
+    font-size: 14px;
+    border-color: #e1dede;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #3c5899;
+    color: rgb(255, 255, 255);
+    transition: ease-out;
+    box-shadow: 0px 0px 10px rgba(35, 35, 35, 0.7);
+}
+
+/* Timer Styles */
+#timer {
+    display: inline-block;
+    font-size: 2rem;
+    color: #6a0753;
+    font-weight: bold;
+    margin-right: 2rem;
+}
+
+/* Image Area Styles */
+.image-area {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-area input[type="file"] {
+    display: none;
+}
+
+.image-area #imageContainer img {
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+.image-controls {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.image-controls button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.image-controls button:hover {
+    background-color: #555;
+}

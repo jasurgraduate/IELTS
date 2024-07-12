@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CD IELTS Preparation | Writing Task 1, Task 2</title>
+
+    <link href="css/stylenew.css" rel="stylesheet" />
+    <!-- Add favicon -->
+    <link rel="icon" type="image/ico" href="favicon.ico">
+</head>
+
+<body>
+
+    <header>
+        <div id="timer">01:00:00</div>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="resetBtn">Reset</button>
+    </header>
+
+    <div class="container">
+        <div class="left">
+            <h2>Image 1 (Drag n drop / Double click / Ctrl+V) <br/>
+            Ctrl+Mouse scroll = Zoom in/out </h2>
+            <div id="imageArea1" class="image-area">
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                <button class="button" id="replaceBtn1">Add an image</button>
+                <div id="imageContainer"></div>
+            </div>
+            
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="right">
+            <div class="input-title">Task 1</div>
+            <p id="wordCount">Word Count: 0</p>
+            <textarea autofocus="" class="form-control input-area"
+                placeholder="Please start the timer and you may begin writing" rows="20"
+                oninput="onLatinTextChange(this.value)" id="latinTextarea"></textarea>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left">
+            <h2>Image 2 (Drag n drop / Double click / Ctrl+V) <br/>
+                Ctrl+Mouse scroll = Zoom in/out</h2>
+            <div id="imageArea2" class="image-area">
+                <input type="file" id="imageUpload2" accept="image/*" style="display: none;">
+                <button class="button" id="replaceBtn2">Add an image</button>
+                <div id="imageContainer2"></div>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="right">
+            <div class="input-title">Task 2</div>
+            <p id="wordCount2">Word Count: 0</p>
+            <textarea autofocus="" class="form-control input-area" placeholder="Task 2. Just give it a go! Good luck!"
+                rows="20" oninput="onLatinTextChange(this.value)" id="latinTextarea2"></textarea>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2019-<span id="current-year"></span> <a href="https://jasurjacob.blogspot.com">jasurlive.uz</a> | All
+            rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript files -->
+    <script src="js/timer.js"></script>
+    <script src="js/wordcount1.js"></script>
+    <script src="js/wordcount2.js"></script>
+    <script src="js/image.js"></script>
+</body>
+
+</html>

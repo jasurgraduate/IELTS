@@ -2,9 +2,24 @@ document.addEventListener("DOMContentLoaded", function() {
     const submitButton = document.querySelector('button[type="submit"]');
     const resetButton = document.getElementById('resetBtn');
     const resultDiv = document.getElementById('result');
+    const resultMessage = document.getElementById('resultMessage');
+    const closeBtn = document.getElementById('closeBtn');
 
-    // Function to calculate the number of correct answers and update the result
-    function updateResult() {
+    // Function to display the popup with a message
+    function showPopup(message, confettiOptions) {
+        resultMessage.textContent = message;
+        resultDiv.style.display = 'block'; // Show the popup
+
+        // Trigger confetti if options are provided
+        if (confettiOptions) {
+            confetti(confettiOptions);
+        }
+    }
+
+    // Attach the updateResult function to the submit button's click event
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent form submission
+
         // Count the number of false checkboxes
         const falseCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked[value="false"]');
         const falseCount = falseCheckboxes.length;
@@ -12,15 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
         // Calculate the number of correct answers
         const correctCount = 40 - falseCount;
 
-        // Display the count in the result div
-        resultDiv.textContent = `Correct Answers: ${correctCount}`;
+        // Prepare the message and confetti options
+        let message = `Correct Answers: ${correctCount}`;
+        let confettiOptions = null;
 
-        // Check if the number of correct answers is more than 35
         if (correctCount > 34) {
-            // If true, display congratulations message
-            resultDiv.textContent += ". Congratulations! You made it!";
-            // Trigger confetti with snowfall effect
-            confetti({
+            message += ". Congratulations! You made it!";
+            confettiOptions = {
                 particleCount: 3500, // Number of particles
                 spread: window.innerWidth, // Spread angle of the particles (matches screen width)
                 angle: 135,  // Angle in degrees at which particles are launched (towards top)
@@ -28,23 +41,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 colors: ['#FF0000', '#00FF00', '#0000FF'], // Different colors of the particles
                 shapes: ['square', 'circle'], // Shapes of the particles
                 origin: { y: 1 } // Starting point (y: 1 is at the bottom of the screen)
-            });
+            };
         } else if (correctCount > 30 && correctCount <= 34) {
-            // If true, display close message
-            resultDiv.textContent += ". That was close! Keep it up!";
+            message += ". That was close! Keep it up!";
         }
-    }
 
-    // Attach the updateResult function to the submit button's click event
-    submitButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent form submission
-        updateResult();
+        // Show the popup with the result message and confetti
+        showPopup(message, confettiOptions);
     });
 
     // Add click event listener to the reset button
     resetButton.addEventListener("click", function() {
         // Clear the content of the result div
-        resultDiv.textContent = "";
+        resultDiv.style.display = 'none'; // Hide the popup
 
         // Uncheck all checkboxes
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -57,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
         inputs.forEach(input => {
             input.value = "";
         });
+    });
+
+    // Handle click event on the close button
+    closeBtn.addEventListener('click', function() {
+        resultDiv.style.display = 'none'; // Hide the popup immediately
     });
 
     // Handle enter key navigation for text inputs

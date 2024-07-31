@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const resultDiv = document.getElementById('result');
     const resultMessage = document.getElementById('resultMessage');
     const closeBtn = document.getElementById('closeBtn');
+    const inputs = document.querySelectorAll("input[type='text']");
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
     // Function to display the popup with a message
     function showPopup(message, confettiOptions) {
@@ -15,6 +17,33 @@ document.addEventListener("DOMContentLoaded", function() {
             confetti(confettiOptions);
         }
     }
+
+    // Function to save all input and checkbox values to local storage
+    function saveFormData() {
+        inputs.forEach((input, index) => {
+            localStorage.setItem(`input${index}`, input.value);
+        });
+        checkboxes.forEach((checkbox, index) => {
+            localStorage.setItem(`checkbox${index}`, checkbox.checked);
+        });
+    }
+
+    // Function to load all input and checkbox values from local storage
+    function loadFormData() {
+        inputs.forEach((input, index) => {
+            const savedValue = localStorage.getItem(`input${index}`);
+            if (savedValue !== null) {
+                input.value = savedValue;
+            }
+        });
+        checkboxes.forEach((checkbox, index) => {
+            const savedChecked = localStorage.getItem(`checkbox${index}`);
+            checkbox.checked = savedChecked === 'true';
+        });
+    }
+
+    // Load form data on page load
+    loadFormData();
 
     // Attach the updateResult function to the submit button's click event
     submitButton.addEventListener('click', function(event) {
@@ -56,16 +85,17 @@ document.addEventListener("DOMContentLoaded", function() {
         resultDiv.style.display = 'none'; // Hide the popup
 
         // Uncheck all checkboxes
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
             checkbox.checked = false;
         });
 
         // Clear all input fields
-        const inputs = document.querySelectorAll('input[type="text"]');
         inputs.forEach(input => {
             input.value = "";
         });
+
+        // Clear local storage
+        localStorage.clear();
     });
 
     // Handle click event on the close button
@@ -74,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Handle enter key navigation for text inputs
-    const inputs = document.querySelectorAll("input[type='text']");
     inputs.forEach((input, index) => {
         input.addEventListener("keydown", function(event) {
             if (event.key === "Enter" && !event.shiftKey) {
@@ -92,5 +121,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
         });
+    });
+
+    // Save form data whenever an input or checkbox value changes
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', saveFormData);
+    });
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.addEventListener('change', saveFormData);
     });
 });

@@ -18,18 +18,18 @@ header {
     height: 10vh;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
-    background-color: rgba(249, 227, 195, 0.8);
+    background: linear-gradient(135deg, #2c3e508f, #34495e, #5d6d7e8a);
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    
+
 }
 
 /* Footer Styles */
 footer {
     width: 100%;
-    background-color: rgba(249, 227, 195, 0.8);
+    background: linear-gradient(135deg, #2c3e508f, #34495e, #5d6d7e8a);
     height: 8vh;
     display: flex;
     justify-content: center;
@@ -41,22 +41,38 @@ footer {
 
 footer p {
     margin: 0;
+    color: whitesmoke;
 }
 
-a {
+footer a {
+    display: inline-block;
     text-decoration: none;
     cursor: pointer;
-    padding: 0.3rem;
-    margin: 0.3rem;
+    color: rgb(0, 132, 255);
+    padding: 4px 8px;
+    /* Increased padding for a button-like appearance */
+    border: solid #ffffff 1px;
+    border-radius: 7px;
+    background-color: whitesmoke;
+    /* Added background color */
+    font-weight: bold;
+    /* Added bold text for button-like appearance */
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-a:hover {
-    background: linear-gradient(135deg, #fcd86d, #2bffff, 0.9);
-    color: #ff6363;
+footer a:hover {
+    text-decoration: none;
+    background-color: #059668;
+    /* Darker background on hover */
+    color: #fff9f9;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    border: 2px solid #007bff88;
+    border-radius: 7px;
+    transform: translateY(-3px);
+    transition: ease-in-out 0.3s;
 }
+
+
+
 
 /* Container Styles */
 .container {
@@ -96,13 +112,14 @@ a:hover {
 }
 
 .separator {
-margin-left: 1rem;
+    margin-left: 1rem;
     width: 0.2rem;
     background-color: rgba(249, 195, 195, 0.8);
 }
 
 /* Heading Styles */
-h1, h2 {
+h1,
+h2 {
     text-align: center;
     color: #565656;
 }
@@ -134,7 +151,7 @@ h1, h2 {
 
 /* Button Styles */
 button {
-    padding: 8px 15px;
+    padding: 8px 20px;
     margin: 0 10px;
     font-size: 14px;
     border-color: #e1dede;
@@ -145,17 +162,26 @@ button:hover {
     cursor: pointer;
     background-color: #3c5899;
     color: rgb(255, 255, 255);
-    transition: ease-out;
+    transition: ease-out 0.5s;
     box-shadow: 0px 0px 10px rgba(35, 35, 35, 0.7);
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: scale(0.98);
+    transition: ease-in;
 }
 
 /* Timer Styles */
 #timer {
     display: inline-block;
     font-size: 2rem;
-    color: #6a0753;
+    color: #ffffff;
+    padding: 0 15px 0 15px;
     font-weight: bold;
     margin-right: 2rem;
+    border: whitesmoke 2px solid;
+    border-radius: 5px;
 }
 
 /* Image Area Styles */
@@ -180,7 +206,7 @@ button:hover {
 .image-area #imageContainer img {
     max-width: 100%;
     max-height: 100%;
-    
+
 }
 
 .image-controls {

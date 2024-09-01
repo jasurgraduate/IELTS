@@ -43,18 +43,19 @@ footer {
 footer p {
     margin: 0;
     color: whitesmoke;
+    font-size: 18px;
 }
 
 footer a {
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
-    color: rgb(0, 132, 255);
+    color: rgb(244, 255, 209);
     padding: 4px 8px;
     /* Increased padding for a button-like appearance */
     border: solid #ffffff 1px;
     border-radius: 7px;
-    background-color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0);
     /* Added background color */
     font-weight: bold;
     /* Added bold text for button-like appearance */

@@ -173,7 +173,7 @@ const Feedback: React.FC = () => {
                         <div key={fb.id} className="feedback-item">
                             <p><strong>{fb.name}</strong> wrote: {fb.message}</p>
                             <p className="feedback-date">{fb.formattedDate}</p>
-                            {fb.reply && <p className="admin-reply"><strong>Admin:</strong> {fb.reply}</p>}
+                            {fb.reply && <p className="admin-reply"><strong>Admin's reply:</strong> {fb.reply}</p>}
                             <div className="feedback-actions">
                                 <button onClick={() => handleLike(fb.id)}>👍🏻 ({fb.likes})</button>
                                 <button onClick={() => handleDislike(fb.id)}>😐 ({fb.dislikes})</button>

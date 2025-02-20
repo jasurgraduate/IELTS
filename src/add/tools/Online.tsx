@@ -9,9 +9,9 @@ import {
     query,
     where,
 } from "firebase/firestore";
-import { UAParser } from "ua-parser-js";
+import { UAParser } from "ua-parser-js";/* 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons"; */
 import "../css/online.css";
 
 interface UserStatus {
@@ -26,7 +26,7 @@ interface UserStatus {
 function Online() {
     const [onlineUsers, setOnlineUsers] = useState<UserStatus[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [isDetailVisible, setIsDetailVisible] = useState<boolean>(false);
+    const [isDetailVisible] = useState<boolean>(false);
 
     useEffect(() => {
         const parser = new UAParser();
@@ -98,8 +98,8 @@ function Online() {
 
         fetchIpAndUpdate();
     }, []);
-
-    const toggleDetails = () => setIsDetailVisible(!isDetailVisible);
+    /* 
+        const toggleDetails = () => setIsDetailVisible(!isDetailVisible); */
 
     if (loading) return <div>Loading...</div>;
 

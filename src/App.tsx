@@ -26,27 +26,27 @@ function App() {
 
         <div className="home-container">
           <Routes>
-            <Route path="/IELTS-vite" element={<Home hideNav={hideNav} />} />
-            <Route path="/IELTS-vite/writing" element={<Writing />} />
-            <Route path="/IELTS-vite/answer-sheet" element={<AnswerSheet />} />
-            <Route path="/IELTS-vite/speaking" element={<Speaking />} />
-            <Route path="/IELTS-vite/feedback" element={<Feedback />} />
+            <Route path="/IELTS" element={<Home hideNav={hideNav} />} />
+            <Route path="/IELTS/writing" element={<Writing />} />
+            <Route path="/IELTS/answer-sheet" element={<AnswerSheet />} />
+            <Route path="/IELTS/speaking" element={<Speaking />} />
+            <Route path="/IELTS/feedback" element={<Feedback />} />
           </Routes>
         </div>
         <Online />
         <Footer />
         {!isNavHidden && (
           <nav className="nav-icons">
-            <Link to="/IELTS-vite" className="nav-link">
+            <Link to="/IELTS" className="nav-link">
               <FontAwesomeIcon icon={faHome} />
             </Link>
-            <Link to="/IELTS-vite/writing" className="nav-link">
+            <Link to="/IELTS/writing" className="nav-link">
               <FontAwesomeIcon icon={faPen} />
             </Link>
-            <Link to="/IELTS-vite/answer-sheet" className="nav-link">
+            <Link to="/IELTS/answer-sheet" className="nav-link">
               <FontAwesomeIcon icon={faHeadphones} />
             </Link>
-            <Link to="/IELTS-vite/feedback" className="nav-link">
+            <Link to="/IELTS/feedback" className="nav-link">
               <FontAwesomeIcon icon={faComments} />
             </Link>
           </nav>

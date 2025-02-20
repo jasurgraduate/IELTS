@@ -28,7 +28,9 @@ const Feedback: React.FC = () => {
             const feedbackSnapshot = await getDocs(feedbackCollection);
             const feedbackList = feedbackSnapshot.docs.map(doc => {
                 const data = doc.data() as FeedbackData;
-                return { id: doc.id, ...data, formattedDate: new Date(data.timestamp.seconds * 1000).toLocaleString() };
+                const { id, ...rest } = data;
+                return { id: doc.id, ...rest, formattedDate: new Date(data.timestamp.seconds * 1000).toLocaleString() };
+
             }).sort((a, b) => b.timestamp.seconds - a.timestamp.seconds);
             setFeedbacks(feedbackList);
         };
@@ -98,7 +100,9 @@ const Feedback: React.FC = () => {
         const feedbackSnapshot = await getDocs(feedbackCollection);
         const feedbackList = feedbackSnapshot.docs.map(doc => {
             const data = doc.data() as FeedbackData;
-            return { id: doc.id, ...data, formattedDate: new Date(data.timestamp.seconds * 1000).toLocaleString() };
+            const { id, ...rest } = data;
+            return { id: doc.id, ...rest, formattedDate: new Date(data.timestamp.seconds * 1000).toLocaleString() };
+
         }).sort((a, b) => b.timestamp.seconds - a.timestamp.seconds);
         setFeedbacks(feedbackList);
     };

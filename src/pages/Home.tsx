@@ -16,15 +16,15 @@ function Home({ hideNav }: { hideNav: (hide: boolean) => void }) {
             <div className="home">
 
                 <div className="grid-container">
-                    <Link to="/IELTS-vite/writing" className="grid-item">
+                    <Link to="/IELTS/writing" className="grid-item">
                         <FontAwesomeIcon icon={faPen} className="icon" />
                         <span>Writing</span>
                     </Link>
-                    <Link to="/IELTS-vite/answer-sheet" className="grid-item">
+                    <Link to="/IELTS/answer-sheet" className="grid-item">
                         <FontAwesomeIcon icon={faHeadphones} className="icon" />
                         <span>Listening & Reading</span>
                     </Link>
-                    <Link to="/IELTS-vite/feedback" className="grid-item">
+                    <Link to="/IELTS/feedback" className="grid-item">
                         <FontAwesomeIcon icon={faComments} className="icon" />
                         <span>Feedback</span>
                     </Link>

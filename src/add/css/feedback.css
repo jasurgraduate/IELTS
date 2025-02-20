@@ -1,0 +1,135 @@
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 20px;
+    background-color: #f9f9f971;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-section,
+.messages-section {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f0f0 0%, #cccccc 100%);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-section h1,
+.messages-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+
+.feedback-form {
+    margin-bottom: 20px;
+}
+
+.feedback-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    outline: none;
+    border: 2px solid rgb(130, 238, 173);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-form textarea {
+    height: 100px;
+}
+
+.feedback-form button {
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.feedback-form button:hover {
+    background-color: #0056b3;
+}
+
+.feedback-list {
+    margin-top: 20px;
+}
+
+.feedback-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.feedback-item p {
+    margin: 5px 0;
+}
+
+.feedback-date {
+    font-size: 12px;
+    color: #888;
+}
+
+.admin-reply {
+    color: #007bff;
+}
+
+.feedback-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.feedback-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.feedback-actions button:hover {
+    background-color: #ddd;
+}
+
+@media (max-width: 600px) {
+    .feedback-container {
+        padding: 10px;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+        font-size: 12px;
+    }
+
+    .feedback-form button {
+        padding: 6px;
+    }
+
+    .feedback-actions button {
+        padding: 4px 8px;
+    }
+}

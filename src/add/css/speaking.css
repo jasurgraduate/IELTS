@@ -1,0 +1,14 @@
+.speaking {
+    padding: 20px;
+    text-align: center;
+}
+
+.speaking h2 {
+    font-size: 2rem;
+    color: #4CAF50;
+}
+
+.speaking p {
+    font-size: 1.2rem;
+    color: #666;
+}

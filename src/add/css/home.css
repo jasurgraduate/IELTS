@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(15deg, #f2a7a7, #77b4f6);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.home-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+nav {
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav a {
+    padding: 10px;
+    text-decoration: none;
+    color: #4c59af;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #e0e0e0;
+    padding: 0.5rem 0;
+    border-radius: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #4592a0;
+    color: white;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #4c59af;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid #657c6f64;
+}
+
+.nav-link:hover {
+    background-color: #4592a0;
+    color: white;
+}
+
+.nav-icons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #e0e0e0;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #4592a0;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.writing-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-image img {
+    width: 100%;
+}
+
+textarea {
+    width: 50%;
+    height: 300px;
+    resize: none;
+}
+
+.answer-box {
+    display: flex;
+    align-items: center;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 48%;
+    height: 40%;
+    background-color: #4c59af;
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.grid-item .icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.grid-item:hover {
+    background-color: #343e7c;
+}

@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/IELTS/',
   server: {
+    open: true,
     hmr: true,
   },
 })

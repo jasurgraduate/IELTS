@@ -32,3 +32,18 @@
     font-size: 0.9rem;
     color: #333;
 }
+
+.spinner-online-users {
+    margin-right: 10px;
+    animation: spin-online-users 1s linear infinite;
+}
+
+@keyframes spin-online-users {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

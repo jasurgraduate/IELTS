@@ -28,7 +28,7 @@ function Home({ hideNav }: { hideNav: (hide: boolean) => void }) {
                         <FontAwesomeIcon icon={faComments} className="icon" />
                         <span>Feedback</span>
                     </Link>
-                    <a href="https://jasurgraduate.github.io/to-do-list/" target="_blank" rel="noreferrer" className="grid-item">
+                    <a href="/IELTS/to-do-list" className="grid-item">
                         <FontAwesomeIcon icon={faPlus} className="icon" />
                         <span>To-Do List</span>
                     </a>

@@ -5,13 +5,13 @@ import { faHome, faPen, faHeadphones, faComments } from '@fortawesome/free-solid
 import Home from "./pages/Home";
 import Writing from "./pages/Writing";
 import AnswerSheet from "./pages/AnswerSheet";
-import Speaking from "./pages/Speaking";
 import Feedback from "./add/tools/Feedback";
 import Footer from "./add/tools/Footer";
 import Online from "./add/tools/Online";
 
 import "./add/css/home.css";
 import { useState } from "react";
+import ToDoList from "./pages/ToDoList";
 
 function App() {
   const [isNavHidden, setIsNavHidden] = useState(false);
@@ -26,10 +26,10 @@ function App() {
 
         <div className="home-container">
           <Routes>
-            <Route path="/IELTS" element={<Home hideNav={hideNav} />} />
+            <Route path="/IELTS/" element={<Home hideNav={hideNav} />} />
             <Route path="/IELTS/writing" element={<Writing />} />
             <Route path="/IELTS/answer-sheet" element={<AnswerSheet />} />
-            <Route path="/IELTS/speaking" element={<Speaking />} />
+            <Route path="/IELTS/to-do-list" element={<ToDoList />} />
             <Route path="/IELTS/feedback" element={<Feedback />} />
           </Routes>
         </div>
@@ -37,7 +37,7 @@ function App() {
         <Footer />
         {!isNavHidden && (
           <nav className="nav-icons">
-            <Link to="/IELTS" className="nav-link">
+            <Link to="/IELTS/" className="nav-link">
               <FontAwesomeIcon icon={faHome} />
             </Link>
             <Link to="/IELTS/writing" className="nav-link">

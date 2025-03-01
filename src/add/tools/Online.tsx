@@ -9,10 +9,10 @@ import {
     query,
     where,
 } from "firebase/firestore";
-import { UAParser } from "ua-parser-js";/* 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons"; */
+import { UAParser } from "ua-parser-js";
 import "../css/online.css";
+import { FaSpinner } from 'react-icons/fa';
+
 
 interface UserStatus {
     state: string;
@@ -66,15 +66,15 @@ function Online() {
                     await setDoc(userStatusDocRef, status, { merge: true });
                 };
 
-                updateStatus(true);
-
                 const userStatusCollectionRef = collection(firestore, "ielts");
                 const onlineUsersQuery = query(userStatusCollectionRef, where("state", "==", "online"));
 
                 const unsubscribe = onSnapshot(onlineUsersQuery, (snapshot) => {
                     setOnlineUsers(snapshot.docs.map((doc) => doc.data() as UserStatus));
-                    setLoading(false);
+                    setTimeout(() => setLoading(false), 2000);
                 });
+
+                await updateStatus(true);
 
                 const handleVisibilityChange = () => {
                     if (document.visibilityState === "hidden") {
@@ -98,14 +98,20 @@ function Online() {
 
         fetchIpAndUpdate();
     }, []);
-    /* 
-        const toggleDetails = () => setIsDetailVisible(!isDetailVisible); */
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) {
+        return (
+            <div className="container-online-users">
+                <h1>
+                    <FaSpinner className="spinner-online-users" /> Loading...
+                </h1>
+            </div>
+        );
+    }
 
     return (
         <div className="container-online-users">
-            <h1>👥🟢 Online: {onlineUsers.length}</h1>
+            <h1>🟢 Online: {onlineUsers.length}</h1>
             {/* <h5>
                 <button onClick={toggleDetails}>
                     <FontAwesomeIcon icon={isDetailVisible ? faChevronUp : faChevronDown} />

@@ -26,27 +26,27 @@ function App() {
 
         <div className="home-container">
           <Routes>
-            <Route path="/IELTS/" element={<Home hideNav={hideNav} />} />
-            <Route path="/IELTS/writing" element={<Writing />} />
-            <Route path="/IELTS/answer-sheet" element={<AnswerSheet />} />
-            <Route path="/IELTS/to-do-list" element={<ToDoList />} />
-            <Route path="/IELTS/feedback" element={<Feedback />} />
+            <Route path="/" element={<Home hideNav={hideNav} />} />
+            <Route path="/writing" element={<Writing />} />
+            <Route path="/answer-sheet" element={<AnswerSheet />} />
+            <Route path="/to-do-list" element={<ToDoList />} />
+            <Route path="/feedback" element={<Feedback />} />
           </Routes>
         </div>
         <Online />
         <Footer />
         {!isNavHidden && (
           <nav className="nav-icons">
-            <Link to="/IELTS/" className="nav-link">
+            <Link to="/" className="nav-link">
               <FontAwesomeIcon icon={faHome} />
             </Link>
-            <Link to="/IELTS/writing" className="nav-link">
+            <Link to="/writing" className="nav-link">
               <FontAwesomeIcon icon={faPen} />
             </Link>
-            <Link to="/IELTS/answer-sheet" className="nav-link">
+            <Link to="/answer-sheet" className="nav-link">
               <FontAwesomeIcon icon={faHeadphones} />
             </Link>
-            <Link to="/IELTS/feedback" className="nav-link">
+            <Link to="/feedback" className="nav-link">
               <FontAwesomeIcon icon={faComments} />
             </Link>
           </nav>

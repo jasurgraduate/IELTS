@@ -9,27 +9,25 @@ import { faTrash, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 function Writing() {
     const [task1Image, setTask1Image] = useState<string | null>(localStorage.getItem("task1Image") || task1DefaultImage);
     const [task2Image, setTask2Image] = useState<string | null>(localStorage.getItem("task2Image") || task2DefaultImage);
-    const [task1Text, setTask1Text] = useState<string>("");
-    const [task2Text, setTask2Text] = useState<string>("");
+    const [task1Text, setTask1Text] = useState<string>(localStorage.getItem("task1Text") || "");
+    const [task2Text, setTask2Text] = useState<string>(localStorage.getItem("task2Text") || "");
     const [activeTab, setActiveTab] = useState<number>(1);
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number, visible: boolean, image: string | null, setImage: React.Dispatch<React.SetStateAction<string | null>> } | null>(null);
 
-
     useEffect(() => {
-        if (task1Image && task1Image !== task1DefaultImage) {
-            localStorage.setItem("task1Image", task1Image);
-        } else {
-            localStorage.removeItem("task1Image");
-        }
-    }, [task1Image]);
+        const saveToLocalStorage = (key: string, value: string | null) => {
+            if (value) {
+                localStorage.setItem(key, value);
+            } else {
+                localStorage.removeItem(key);
+            }
+        };
 
-    useEffect(() => {
-        if (task2Image && task2Image !== task2DefaultImage) {
-            localStorage.setItem("task2Image", task2Image);
-        } else {
-            localStorage.removeItem("task2Image");
-        }
-    }, [task2Image]);
+        saveToLocalStorage("task1Image", task1Image !== task1DefaultImage ? task1Image : null);
+        saveToLocalStorage("task2Image", task2Image !== task2DefaultImage ? task2Image : null);
+        localStorage.setItem("task1Text", task1Text);
+        localStorage.setItem("task2Text", task2Text);
+    }, [task1Image, task2Image, task1Text, task2Text]);
 
     const handleClickOutside = useCallback(() => {
         setContextMenu(null);
@@ -89,7 +87,8 @@ function Writing() {
     };
 
     return (
-        <div><Timer duration={3600} />
+        <div>
+            <Timer duration={3600} storageKey="writingTimerTime" />
             <div className="writing-container">
 
             </div>

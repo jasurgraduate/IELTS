@@ -3,10 +3,14 @@ import "../css/timer.css";
 
 interface TimerProps {
     duration: number;
+    storageKey: string;
 }
 
-function Timer({ duration }: TimerProps) {
-    const [time, setTime] = useState(duration);
+function Timer({ duration, storageKey }: TimerProps) {
+    const [time, setTime] = useState(() => {
+        const savedTime = localStorage.getItem(storageKey);
+        return savedTime ? parseInt(savedTime, 10) : duration;
+    });
     const [running, setRunning] = useState(false);
     const startTimeRef = useRef<number | null>(null);
 
@@ -18,14 +22,16 @@ function Timer({ duration }: TimerProps) {
             }
             interval = setInterval(() => {
                 const elapsed = Math.floor((Date.now() - startTimeRef.current!) / 1000);
-                setTime(Math.max(0, duration - elapsed));
+                const newTime = Math.max(0, time - elapsed);
+                setTime(newTime);
+                localStorage.setItem(storageKey, newTime.toString());
             }, 1000);
         }
         return () => {
             clearInterval(interval);
             startTimeRef.current = null;
         };
-    }, [running, duration]);
+    }, [running, time, storageKey]);
 
     const startTimer = () => {
         if (!running) {
@@ -40,6 +46,7 @@ function Timer({ duration }: TimerProps) {
     const resetTimer = () => {
         setRunning(false);
         setTime(duration);
+        localStorage.removeItem(storageKey);
         startTimeRef.current = null;
     };
 

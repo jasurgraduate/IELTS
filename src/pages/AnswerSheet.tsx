@@ -9,6 +9,8 @@ function ListeningReading() {
     const [activeTab, setActiveTab] = useState("listening");
     const [listeningAnswers, setListeningAnswers] = useState(Array(40).fill(""));
     const [readingAnswers, setReadingAnswers] = useState(Array(40).fill(""));
+    const [listeningCheckboxes, setListeningCheckboxes] = useState(Array(40).fill(false));
+    const [readingCheckboxes, setReadingCheckboxes] = useState(Array(40).fill(false));
     const [submitText, setSubmitText] = useState("Submit");
     const [clearText, setClearText] = useState("Clear");
     const firstInputRef = useRef<HTMLInputElement>(null);
@@ -18,17 +20,20 @@ function ListeningReading() {
     useEffect(() => {
         const savedListeningAnswers = localStorage.getItem("listeningAnswers");
         const savedReadingAnswers = localStorage.getItem("readingAnswers");
+        const savedListeningCheckboxes = localStorage.getItem("listeningCheckboxes");
+        const savedReadingCheckboxes = localStorage.getItem("readingCheckboxes");
         if (savedListeningAnswers) setListeningAnswers(JSON.parse(savedListeningAnswers));
         if (savedReadingAnswers) setReadingAnswers(JSON.parse(savedReadingAnswers));
+        if (savedListeningCheckboxes) setListeningCheckboxes(JSON.parse(savedListeningCheckboxes));
+        if (savedReadingCheckboxes) setReadingCheckboxes(JSON.parse(savedReadingCheckboxes));
     }, []);
 
     useEffect(() => {
         localStorage.setItem("listeningAnswers", JSON.stringify(listeningAnswers));
-    }, [listeningAnswers]);
-
-    useEffect(() => {
         localStorage.setItem("readingAnswers", JSON.stringify(readingAnswers));
-    }, [readingAnswers]);
+        localStorage.setItem("listeningCheckboxes", JSON.stringify(listeningCheckboxes));
+        localStorage.setItem("readingCheckboxes", JSON.stringify(readingCheckboxes));
+    }, [listeningAnswers, readingAnswers, listeningCheckboxes, readingCheckboxes]);
 
     useEffect(() => {
         if (firstInputRef.current) {
@@ -67,11 +72,25 @@ function ListeningReading() {
         }
     };
 
+    const handleCheckboxChange = (index: number, checked: boolean) => {
+        if (activeTab === "listening") {
+            const newCheckboxes = [...listeningCheckboxes];
+            newCheckboxes[index] = checked;
+            setListeningCheckboxes(newCheckboxes);
+        } else {
+            const newCheckboxes = [...readingCheckboxes];
+            newCheckboxes[index] = checked;
+            setReadingCheckboxes(newCheckboxes);
+        }
+    };
+
     const handleClear = () => {
         if (activeTab === "listening") {
             setListeningAnswers(Array(40).fill(""));
+            setListeningCheckboxes(Array(40).fill(false));
         } else {
             setReadingAnswers(Array(40).fill(""));
+            setReadingCheckboxes(Array(40).fill(false));
         }
         document.querySelectorAll(".checkbox-container input[type='checkbox']").forEach((checkbox) => {
             (checkbox as HTMLInputElement).checked = false;
@@ -129,7 +148,7 @@ function ListeningReading() {
         setTimeout(() => setSubmitText("Submit"), 3000);
     };
 
-    const renderColumn = (start: number, end: number, answers: string[]) => (
+    const renderColumn = (start: number, end: number, answers: string[], checkboxes: boolean[]) => (
         <div className="column">
             {answers.slice(start, end).map((answer, index) => (
                 <div key={start + index} className="answer-box">
@@ -143,7 +162,12 @@ function ListeningReading() {
                         ref={start + index === 0 ? firstInputRef : null}
                     />
                     <label className="checkbox-container">
-                        <input type="checkbox" data-index={start + index} />
+                        <input
+                            type="checkbox"
+                            data-index={start + index}
+                            checked={checkboxes[start + index]}
+                            onChange={(e) => handleCheckboxChange(start + index, e.target.checked)}
+                        />
                         <span className="checkmark"> False</span>
                     </label>
                 </div>
@@ -153,7 +177,7 @@ function ListeningReading() {
 
     return (
         <div className="answer-sheet">
-            <Timer duration={3600} />
+            <Timer duration={3600} storageKey="answerSheetTimerTime" />
             <div className="tabs">
                 <button className={activeTab === "listening" ? "active" : ""} onClick={() => setActiveTab("listening")}>
                     <FontAwesomeIcon className="fa-icon" icon={faHeadphones} /> Listening
@@ -165,18 +189,18 @@ function ListeningReading() {
             <div className="answers">
                 {activeTab === "listening" && (
                     <>
-                        {renderColumn(0, 10, listeningAnswers)}
-                        {renderColumn(10, 20, listeningAnswers)}
-                        {renderColumn(20, 30, listeningAnswers)}
-                        {renderColumn(30, 40, listeningAnswers)}
+                        {renderColumn(0, 10, listeningAnswers, listeningCheckboxes)}
+                        {renderColumn(10, 20, listeningAnswers, listeningCheckboxes)}
+                        {renderColumn(20, 30, listeningAnswers, listeningCheckboxes)}
+                        {renderColumn(30, 40, listeningAnswers, listeningCheckboxes)}
                     </>
                 )}
                 {activeTab === "reading" && (
                     <>
-                        {renderColumn(0, 10, readingAnswers)}
-                        {renderColumn(10, 20, readingAnswers)}
-                        {renderColumn(20, 30, readingAnswers)}
-                        {renderColumn(30, 40, readingAnswers)}
+                        {renderColumn(0, 10, readingAnswers, readingCheckboxes)}
+                        {renderColumn(10, 20, readingAnswers, readingCheckboxes)}
+                        {renderColumn(20, 30, readingAnswers, readingCheckboxes)}
+                        {renderColumn(30, 40, readingAnswers, readingCheckboxes)}
                     </>
                 )}
             </div>

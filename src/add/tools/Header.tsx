@@ -6,7 +6,7 @@ function Header() {
     return (
         <header className="header-container">
             <h1>
-                <FontAwesomeIcon icon={faLaptop} /> CD IELTS Preparation
+                <FontAwesomeIcon icon={faLaptop} /> IELTSLive.vercel.app
             </h1>
         </header>
     );

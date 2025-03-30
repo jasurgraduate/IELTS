@@ -1,7 +1,11 @@
-
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPen, faHeadphones, faComments } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faPen,
+  faHeadphones,
+  faComments,
+} from "@fortawesome/free-solid-svg-icons";
 import Home from "./pages/Home";
 import Writing from "./pages/Writing";
 import AnswerSheet from "./pages/AnswerSheet";
@@ -10,8 +14,10 @@ import ToDoList from "./pages/ToDoList";
 
 import Footer from "./add/tools/Footer";
 import Online from "./add/tools/Online";
+import Social from "./add/tools/Social";
 
 import "./add/css/home.css";
+import "./add/css/App.css";
 import { useState } from "react";
 
 function App() {
@@ -24,7 +30,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-
         <div className="home-container">
           <Routes>
             <Route path="/" element={<Home hideNav={hideNav} />} />
@@ -36,6 +41,7 @@ function App() {
         </div>
         <Online />
         <Footer />
+        <Social />
         {!isNavHidden && (
           <nav className="nav-icons">
             <Link to="/" className="nav-link">
